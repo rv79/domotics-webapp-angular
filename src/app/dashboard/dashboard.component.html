@@ -1,8 +1,50 @@
-<div style="width: 60%; margin: 10px; float: left">
+<div style="width: 60%; margin: 10px; float: left" (contextmenu)="openMenuPlan($event)">
+
+  <div style="position: fixed" [style.top.px]="menuY" [style.left.px]="menuX">
+    <mat-menu #planMenu="matMenu">
+      <button mat-menu-item> Add</button>
+      <button mat-menu-item> Lock</button>
+    </mat-menu>
+    <div #menuPlan="matMenuTrigger" [matMenuTriggerFor]="planMenu">
+    </div>
+  </div>
+
   <canvas #myCanvas height="500" width="500">
   </canvas>
+
+  <div>
+
+    <div style="position: fixed" [style.top.px]="menuY" [style.left.px]="menuX">
+      <mat-menu #iconMenu="matMenu">
+        <button mat-menu-item> Edit</button>
+        <button mat-menu-item> Delete</button>
+      </mat-menu>
+      <div #menuIcon="matMenuTrigger" [matMenuTriggerFor]="iconMenu">
+      </div>
+    </div>
+
+    <div *ngFor="let icon of icons; let i = index">
+      <button mat-icon-button color="black"
+              [style.background]="'yellow'"
+              [style.left]="icon.left"
+              [style.top]="icon.top"
+              [style.position]="'relative'"
+              ngDraggable
+              (started)="onDragBegin($event, i)"
+              (stopped)="onDragEnd($event, i)"
+              (contextmenu)="openMenuIcon($event, i)"
+              matTooltip="{{icon.name}}">
+
+        <mat-icon >
+          {{icon.icon}}
+        </mat-icon>
+      </button>
+    </div>
+  </div>
 </div>
 
 <div style="width: 10%; margin: 10px; float: left">
   Hello
 </div>
+
+

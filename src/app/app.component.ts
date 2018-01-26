@@ -14,6 +14,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   clientHeight: number;
   containerHeight: number;
+  mainWindowHeight: number;
 
   private clockSubscription: Subscription;
 
@@ -37,6 +38,7 @@ export class AppComponent implements OnInit, OnDestroy {
   onResize(event) {
     this.clientHeight = event.target.innerHeight;
     this.containerHeight = this.clientHeight - 40 - 64;
+    this.mainWindowHeight = this.containerHeight < 540 ? 540 : this.containerHeight;
   }
 
   /*

@@ -11,6 +11,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {GrowlComponent} from './growl/growl.component';
 import {AppRoutingModule} from './app-routing.module';
 import {DashboardComponent} from './dashboard/dashboard.component';
+import {AngularDraggableModule} from 'angular2-draggable';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {DashboardComponent} from './dashboard/dashboard.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     ToasterModule,
-    MaterialModule
+    MaterialModule,
+    AngularDraggableModule
   ],
   providers: [ClockService, GrowlService],
   bootstrap: [AppComponent]

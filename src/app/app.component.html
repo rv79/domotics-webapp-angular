@@ -24,11 +24,10 @@
 
 <app-growl></app-growl>
 
-<div style="width: 100%; height: 64px"></div>
+<div style="width: 100%; height: 64px; position:relative;"></div>
 
-
-
-<div [ngStyle]="{'height': containerHeight + 'px'}">
+<!--div style="height: {{mainWindowHeight}}px; width: 100%"-->
+<div [style.height.px]="600" style="width: 100%; position: relative">
         <!-- main content -->
         <router-outlet></router-outlet>
 </div>

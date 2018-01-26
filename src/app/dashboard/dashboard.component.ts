@@ -1,4 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {MatMenuTrigger} from '@angular/material';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,6 +9,28 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 export class DashboardComponent implements OnInit {
 
   @ViewChild('myCanvas') canvasRef: ElementRef;
+  @ViewChild('menuPlan') triggerPlan: MatMenuTrigger;
+  @ViewChild('menuIcon') triggerIcon: MatMenuTrigger;
+
+  menuX: number;
+  menuY: number;
+
+  icons = [
+    {
+      name: 'Name1',
+      icon: 'home',
+      transform: 'translate(200px, -200px)',
+      left: '200px',
+      top: '-200px'
+    },
+    {
+      name: 'Name2',
+      icon: 'settings',
+      transform: 'translate(100px, -100px)',
+      left: '100px',
+      top: '-100px'
+    }
+  ];
 
   constructor() { }
 
@@ -30,4 +53,33 @@ export class DashboardComponent implements OnInit {
 
   }
 
+  onDragBegin(event, i) {
+    console.log(event.style.transform);
+    this.icons[i].transform = event.style.transform;
+  }
+
+  onDragEnd(event, i) {
+    console.log(event.style.transform);
+    this.icons[i].transform = event.style.transform;
+  }
+
+  openMenuPlan(event): void {
+    event.preventDefault();
+    event.stopPropagation();
+
+    this.menuX = event.clientX;
+    this.menuY = event.clientY;
+
+    this.triggerPlan.openMenu();
+  }
+
+  openMenuIcon(event, i): void {
+    event.preventDefault();
+    event.stopPropagation();
+
+    this.menuX = event.clientX;
+    this.menuY = event.clientY;
+
+    this.triggerIcon.openMenu();
+  }
 }
