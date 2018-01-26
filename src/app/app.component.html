@@ -1,4 +1,4 @@
-<div style="height: 64px">
+<div style="height: 64px; width: 100%; top: 0; position: fixed">
   <mat-toolbar color="primary">
     <mat-toolbar-row>
       &nbsp;&nbsp;
@@ -24,6 +24,8 @@
 
 <app-growl></app-growl>
 
+<div style="width: 100%; height: 64px"></div>
+
 
 
 <div [ngStyle]="{'height': containerHeight + 'px'}">
@@ -31,10 +33,8 @@
         <router-outlet></router-outlet>
 </div>
 
-
-
-<mat-toolbar color="secondary" style="min-height: 40px">
-  <mat-toolbar-row style="height: 40px; background: #9b9b9b">
+<mat-toolbar color="secondary" style="min-height: 40px; bottom: 0; position: fixed">
+  <mat-toolbar-row style="height: 40px; background: #9b9b9b;">
     <mat-card-content style="text-align: center; min-height:30px; height: 30px; margin-bottom: 0px; width: 100%; font-size: small">
       <div style="float: left; width: 40%; text-align: left">
         <span style="font-style: normal">Copyright © 2018 Temenos Headquarters SA</span>
