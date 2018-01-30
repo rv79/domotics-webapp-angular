@@ -12,6 +12,7 @@ import {GrowlComponent} from './growl/growl.component';
 import {AppRoutingModule} from './app-routing.module';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {AngularDraggableModule} from 'angular2-draggable';
+import {DrawService} from './service/draw.service';
 
 
 @NgModule({
@@ -28,7 +29,11 @@ import {AngularDraggableModule} from 'angular2-draggable';
     MaterialModule,
     AngularDraggableModule
   ],
-  providers: [ClockService, GrowlService],
+  providers: [
+    ClockService,
+    GrowlService,
+    DrawService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
