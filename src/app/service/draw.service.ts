@@ -44,33 +44,33 @@ export class DrawService {
   private drawItem(item: DrawItem, ctx: CanvasRenderingContext2D): void {
     switch (item.type) {
       case 'wall':
-        ctx.lineWidth = 5;
-        ctx.strokeStyle = '#888888';
+        ctx.lineWidth = this.drawconst.wallSize;
+        ctx.strokeStyle = this.drawconst.wallColor;
         this.drawLine(item, ctx);
         break;
       case 'exterior':
-        ctx.lineWidth = 5;
-        ctx.strokeStyle = '#CCCCCC';
+        ctx.lineWidth = this.drawconst.exteriorSize;
+        ctx.strokeStyle = this.drawconst.exteriorColor;
         this.drawLine(item, ctx);
         break;
       case 'door':
-        ctx.lineWidth = 3;
-        ctx.strokeStyle = '#EEEEEE';
+        ctx.lineWidth = this.drawconst.doorSize;
+        ctx.strokeStyle = this.drawconst.doorColor;
         this.drawLine(item, ctx);
         break;
       case 'window':
-        ctx.lineWidth = 4;
-        ctx.strokeStyle = '#EEEEEE';
+        ctx.lineWidth = this.drawconst.windowSize;
+        ctx.strokeStyle = this.drawconst.windowColor;
         this.drawLine(item, ctx);
         break;
       case 'cabinet':
-        ctx.lineWidth = 2;
-        ctx.strokeStyle = '#888888';
+        ctx.lineWidth = this.drawconst.cabinetSize;
+        ctx.strokeStyle = this.drawconst.cabinetColor;
         this.drawCabinet(item, ctx);
         break;
       case 'rect':
-        ctx.lineWidth = 2;
-        ctx.strokeStyle = '#888888';
+        ctx.lineWidth = this.drawconst.rectSize;
+        ctx.strokeStyle = this.drawconst.rectColor;
         this.drawRect(item, ctx);
         break;
     }
